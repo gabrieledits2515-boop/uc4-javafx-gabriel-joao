@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="app.uc4javafxgabrieljoao.controller.AssentosController">
+    <top>
+        <HBox alignment="CENTER_LEFT" styleClass="topo">
+            <padding><Insets top="16" right="28" bottom="16" left="28"/></padding>
+            <Label fx:id="info" styleClass="logo"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="26" alignment="CENTER">
+            <padding><Insets top="20" right="28" bottom="20" left="28"/></padding>
+            <Label text="T E L A" styleClass="tela"/>
+            <GridPane fx:id="mapa" hgap="8" vgap="8" alignment="CENTER"/>
+            <HBox spacing="14" alignment="CENTER">
+                <Label text="Disponível" styleClass="legenda, assento-livre"/>
+                <Label text="Selecionado" styleClass="legenda, assento-selecionado"/>
+                <Label text="Ocupado" styleClass="legenda, assento-ocupado"/>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="topo">
+            <padding><Insets top="14" right="28" bottom="14" left="28"/></padding>
+            <Button text="← Voltar" styleClass="secundario" onAction="#onVoltar"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="contador" styleClass="titulo-filme"/>
+            <Button fx:id="btnConfirmar" text="Confirmar assentos" onAction="#onConfirmarAssentos"/>
+        </HBox>
+    </bottom>
+</BorderPane>

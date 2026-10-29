@@ -1,0 +1,111 @@
+/* ===== Base ===== */
+.root {
+    -fx-background-color: #0f0f1a;
+    -fx-font-family: "Segoe UI", "Arial";
+    -fx-font-size: 14px;
+    -fx-base: #2a2a45;
+    -fx-control-inner-background: #2a2a45;
+    -fx-accent: #e50914;
+    -fx-focus-color: #e50914;
+    -fx-faint-focus-color: transparent;
+}
+
+.label { -fx-text-fill: #f2f2f7; }
+
+.rolagem, .rolagem > .viewport { -fx-background-color: transparent; }
+.rolagem { -fx-background-insets: 0; -fx-padding: 0; }
+.rolagem > .viewport > * { -fx-background-color: transparent; }
+
+/* ===== Barras ===== */
+.topo {
+    -fx-background-color: #0a0a14;
+    -fx-border-color: transparent transparent #e50914 transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* ===== Textos ===== */
+.logo        { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #ff3b47; }
+.secao       { -fx-font-size: 20px; -fx-font-weight: bold; }
+.titulo-grande { -fx-font-size: 20px; -fx-font-weight: bold; }
+.titulo-filme  { -fx-font-size: 15px; -fx-font-weight: bold; }
+.sub         { -fx-text-fill: #a9a9c4; }
+.campo       { -fx-text-fill: #cfcfe6; -fx-font-weight: bold; }
+.resumo      { -fx-text-fill: #e4e4f2; -fx-line-spacing: 4; }
+
+/* ===== Cards e painéis ===== */
+.card {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 14;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 14, 0, 0, 4);
+}
+.card:hover { -fx-background-color: #23233f; }
+
+.painel {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 14;
+    -fx-padding: 22;
+}
+
+/* ===== Cartaz sem imagem ===== */
+.poster-vazio {
+    -fx-background-color: linear-gradient(to bottom right, #4b3f8f, #1b1b2f);
+}
+.poster-vazio-texto {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* ===== Etiquetas ===== */
+.badge {
+    -fx-background-color: #34345a;
+    -fx-background-radius: 20;
+    -fx-padding: 2 10 2 10;
+    -fx-font-size: 12px;
+}
+.badge-classif { -fx-background-color: #e5a00d; -fx-text-fill: black; }
+.badge-cartaz  { -fx-background-color: #1f8f4e; }
+.badge-fora    { -fx-background-color: #6b6b7b; }
+
+/* ===== Botões ===== */
+.button {
+    -fx-background-color: #e50914;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 18 8 18;
+    -fx-cursor: hand;
+}
+.button:hover    { -fx-background-color: #ff2b36; }
+.button:disabled { -fx-opacity: 0.4; }
+
+.button.secundario { -fx-background-color: #34345a; }
+.button.secundario:hover { -fx-background-color: #45457a; }
+
+/* ===== Mapa de poltronas ===== */
+.tela {
+    -fx-background-color: linear-gradient(to bottom, #6a6a9a, #2a2a45);
+    -fx-background-radius: 0 0 60 60;
+    -fx-padding: 6 160 8 160;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.fileira { -fx-text-fill: #a9a9c4; -fx-font-weight: bold; -fx-padding: 0 8 0 0; }
+
+.button.assento { -fx-background-radius: 10; -fx-padding: 0; }
+
+.button.assento-livre,
+.legenda.assento-livre       { -fx-background-color: #2e9e57; -fx-text-fill: white; }
+.button.assento-livre:hover  { -fx-background-color: #3bc46f; }
+
+.button.assento-selecionado,
+.legenda.assento-selecionado { -fx-background-color: #f2b01e; -fx-text-fill: black; }
+.button.assento-selecionado:hover { -fx-background-color: #ffc83d; }
+
+.button.assento-ocupado,
+.legenda.assento-ocupado     { -fx-background-color: #55556a; -fx-text-fill: #c9c9d9; }
+.button.assento-ocupado:disabled { -fx-opacity: 1; }
+
+.legenda { -fx-padding: 6 14 6 14; -fx-background-radius: 20; -fx-font-weight: bold; }
+.legenda.assento-selecionado { -fx-text-fill: black; }
