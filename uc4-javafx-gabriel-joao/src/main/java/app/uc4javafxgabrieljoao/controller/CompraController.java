@@ -53,7 +53,6 @@ public class CompraController {
     public void initialize() {
         Filme f = Contexto.filme;
 
-        // ----- informações do filme -----
         Navegador.aplicarFundo(banner, f);
         areaCartaz.getChildren().add(Navegador.poster(f, 170, 255));
         genero.setText(f.getGenero());
@@ -93,7 +92,6 @@ public class CompraController {
             mostrarHorarios((LocalDate) novo.getUserData());
         });
 
-        // mudar a quantidade invalida os assentos já escolhidos
         quantidade.valueProperty().addListener((o, a, b) -> { limparPoltronas(); atualizarResumo(); });
         tipo.valueProperty().addListener((o, a, b) -> atualizarResumo());
 
@@ -122,7 +120,6 @@ public class CompraController {
         return chip;
     }
 
-    /** Mostra os horários do dia escolhido. */
     private void mostrarHorarios(LocalDate dia) {
         trocarSessao(null); // trocar de dia invalida a sessão e os assentos
         horarios.getChildren().clear();

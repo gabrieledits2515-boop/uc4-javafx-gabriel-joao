@@ -26,7 +26,6 @@ import javafx.util.Duration;
 
 import java.util.List;
 
-/** Tela 1: banner de destaque + carrossel dos filmes em cartaz. */
 public class MenuController {
 
     @FXML private StackPane banner;
@@ -50,7 +49,6 @@ public class MenuController {
         if (!emCartaz.isEmpty()) mostrarDestaque(emCartaz.get(0));
     }
 
-    /** Atualiza o banner grande com o filme escolhido. */
     private void mostrarDestaque(Filme f) {
         if (f == destaque) return;
         destaque = f;

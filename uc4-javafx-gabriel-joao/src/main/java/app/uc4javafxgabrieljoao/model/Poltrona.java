@@ -17,7 +17,6 @@ public class Poltrona {
         selecionada = false;
     }
 
-    /** Clique do usuário: seleciona ou desmarca (se não estiver ocupada). */
     public void alternar() {
         if (!ocupada) selecionada = !selecionada;
     }

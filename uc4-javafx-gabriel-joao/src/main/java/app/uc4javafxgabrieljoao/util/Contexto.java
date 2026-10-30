@@ -7,7 +7,6 @@ import app.uc4javafxgabrieljoao.model.Poltrona;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Guarda a compra em andamento, compartilhada entre as telas. */
 public class Contexto {
 
     public static Filme filme;
