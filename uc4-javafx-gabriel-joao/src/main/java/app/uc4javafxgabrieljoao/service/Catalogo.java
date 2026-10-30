@@ -56,18 +56,42 @@ public class Catalogo {
                 "Uma família pobre se infiltra aos poucos na casa de uma família rica, e o plano toma rumos inesperados.",
                 IMG + "parasita.jpg", false));
 
+        // ----- Mais filmes -----
+        filmes.add(new Filme(11, "Harry Potter e a Pedra Filosofal", "Fantasia", "Livre", 152,
+                "Um garoto órfão descobre que é bruxo e vai estudar em Hogwarts, onde faz amigos e investiga o segredo da Pedra Filosofal.",
+                IMG + "harry-potter-pedra-filosofal.jpg", true));
+        filmes.add(new Filme(12, "Pânico 7", "Terror", "18 anos", 114,
+                "Sidney Prescott leva uma vida tranquila com a família, até que um novo Ghostface surge para aterrorizá-la.",
+                IMG + "panico-7.jpg", true));
+        filmes.add(new Filme(13, "Pânico VI", "Terror", "18 anos", 122,
+                "Após o massacre em Woodsboro, os quatro sobreviventes se mudam para Nova York, mas o Ghostface os encontra por lá.",
+                IMG + "panico-vi.jpg", true));
+        filmes.add(new Filme(14, "Devoradores de Estrelas", "Ficção científica", "14 anos", 156,
+                "Um professor acorda numa nave a anos-luz da Terra, sem memória, e precisa descobrir a missão da qual depende o futuro do planeta.",
+                IMG + "devoradores-de-estrelas.jpg", true));
+        filmes.add(new Filme(15, "Tropa de Elite", "Ação", "16 anos", 115,
+                "No Rio de Janeiro de 1997, o capitão Nascimento, do BOPE, procura um sucessor enquanto enfrenta o tráfico e a corrupção.",
+                IMG + "tropa-de-elite.jpg", true));
+        filmes.add(new Filme(16, "Tropa de Elite 2", "Ação", "16 anos", 116,
+                "Treze anos depois, Nascimento ocupa um cargo de comando e descobre que a violência no Rio liga polícia, milícias e política.",
+                IMG + "tropa-de-elite-2.jpg", true));
+
         int id = 1;
+        // cada filme em cartaz tem 3 sessões por dia, nos próximos 5 dias
         for (Filme f : filmes) {
             if (!f.isEmCartaz()) continue;
-            exibicoes.add(new Exibicao(id++, f, 1, LocalDate.now().atTime(18, 0), 30, 5, 8));
-            exibicoes.add(new Exibicao(id++, f, 2, LocalDate.now().atTime(21, 0), 30, 5, 8));
-            exibicoes.add(new Exibicao(id++, f, 1, LocalDate.now().plusDays(1).atTime(19, 30), 30, 5, 8));
+            for (int dia = 0; dia < 5; dia++) {
+                LocalDate data = LocalDate.now().plusDays(dia);
+                exibicoes.add(new Exibicao(id++, f, 1, data.atTime(14, 30), 30, 5, 8));
+                exibicoes.add(new Exibicao(id++, f, 2, data.atTime(18, 0), 30, 5, 8));
+                exibicoes.add(new Exibicao(id++, f, 1, data.atTime(21, 0), 30, 5, 8));
+            }
         }
         // deixa algumas poltronas ocupadas para demonstração
         for (Exibicao e : exibicoes) {
-            e.getPoltronas().get(2).ocupar();
-            e.getPoltronas().get(3).ocupar();
-            e.getPoltronas().get(12).ocupar();
+            e.getPoltronas().get((e.getId() * 7) % 40).ocupar();
+            e.getPoltronas().get((e.getId() * 7 + 1) % 40).ocupar();
+            e.getPoltronas().get((e.getId() * 11) % 40).ocupar();
         }
     }
 

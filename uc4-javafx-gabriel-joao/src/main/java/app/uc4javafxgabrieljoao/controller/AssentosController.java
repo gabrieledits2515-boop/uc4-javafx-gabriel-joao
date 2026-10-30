@@ -33,10 +33,15 @@ public class AssentosController {
             int linha = fileira - 'A';
             int coluna = Integer.parseInt(p.getCodigo().substring(1));
 
-            if (coluna == 1) mapa.add(new Label(String.valueOf(fileira)), 0, linha); // letra da fileira
+            if (coluna == 1) { // letra da fileira
+                Label letra = new Label(String.valueOf(fileira));
+                letra.getStyleClass().add("fileira");
+                mapa.add(letra, 0, linha);
+            }
 
             Button botao = new Button(String.valueOf(coluna));
-            botao.setPrefSize(40, 40);
+            botao.setPrefSize(42, 42);
+            botao.getStyleClass().add("assento");
             pintar(botao, p);
             botao.setOnAction(e -> clicar(p, botao));
             mapa.add(botao, coluna, linha);
@@ -54,7 +59,6 @@ public class AssentosController {
         atualizarContador();
     }
 
-    /** Aplica a classe CSS conforme o estado da poltrona. */
     private void pintar(Button botao, Poltrona p) {
         botao.getStyleClass().removeAll("assento-livre", "assento-ocupado", "assento-selecionado");
         if (p.isOcupada()) {
@@ -86,7 +90,6 @@ public class AssentosController {
 
     @FXML
     private void onVoltar() {
-        // desfaz o que foi marcado nesta tela e volta ao estado confirmado
         for (Poltrona p : exibicao.getPoltronas()) {
             if (p.isSelecionada() != Contexto.poltronas.contains(p)) p.alternar();
         }

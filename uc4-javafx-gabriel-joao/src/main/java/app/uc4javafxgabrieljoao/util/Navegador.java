@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
@@ -25,7 +26,7 @@ public class Navegador {
         try {
             Parent root = FXMLLoader.load(Navegador.class.getResource("/app/uc4javafxgabrieljoao/view/" + tela));
             if (stage.getScene() == null) {
-                Scene scene = new Scene(root, 1000, 700);
+                Scene scene = new Scene(root, 1200, 800);
                 var css = Navegador.class.getResource("/app/uc4javafxgabrieljoao/css/estilo.css");
                 if (css != null) scene.getStylesheets().add(css.toExternalForm());
                 stage.setScene(scene);
@@ -93,6 +94,42 @@ public class Navegador {
         recorte.setArcHeight(24);
         caixa.setClip(recorte);
         return caixa;
+    }
+
+
+    /** Selo colorido da classificação indicativa (L, 10, 12, 14, 16, 18). */
+    public static Label badgeClassificacao(String classificacao) {
+        String sigla = classificacao.toLowerCase().startsWith("livre") ? "L" : classificacao.split(" ")[0];
+        Label selo = new Label(sigla);
+        selo.getStyleClass().addAll("classif", "classif-" + sigla);
+        return selo;
+    }
+
+    /** Ex.: 106 -> "1h 46min" */
+    public static String duracao(int minutos) {
+        int h = minutos / 60;
+        int m = minutos % 60;
+        return h > 0 ? h + "h " + String.format("%02d", m) + "min" : m + "min";
+    }
+
+    /** Coloca o cartaz do filme, ampliado e desfocado, como fundo do banner. */
+    public static void aplicarFundo(StackPane banner, Filme filme) {
+        banner.getChildren().removeIf(n -> n.getStyleClass().contains("banner-fundo"));
+
+        Rectangle recorte = new Rectangle();
+        recorte.widthProperty().bind(banner.widthProperty());
+        recorte.heightProperty().bind(banner.heightProperty());
+        banner.setClip(recorte);
+
+        Image img = imagem(filme.getCartaz());
+        if (img == null) return;
+        ImageView fundo = new ImageView(img);
+        fundo.setPreserveRatio(true);
+        fundo.fitWidthProperty().bind(banner.widthProperty());
+        fundo.setEffect(new GaussianBlur(30));
+        fundo.setOpacity(0.6);
+        fundo.getStyleClass().add("banner-fundo");
+        banner.getChildren().add(0, fundo);
     }
 
     public static void aviso(String mensagem) {

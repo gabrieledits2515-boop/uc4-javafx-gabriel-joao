@@ -35,7 +35,7 @@
             <Button text="← Voltar" styleClass="secundario" onAction="#onVoltar"/>
             <Region HBox.hgrow="ALWAYS"/>
             <Label fx:id="contador" styleClass="titulo-filme"/>
-            <Button fx:id="btnConfirmar" text="Confirmar assentos" onAction="#onConfirmarAssentos"/>
+            <Button fx:id="btnConfirmar" styleClass="pill" text="CONFIRMAR ASSENTOS" onAction="#onConfirmarAssentos"/>
         </HBox>
     </bottom>
 </BorderPane>

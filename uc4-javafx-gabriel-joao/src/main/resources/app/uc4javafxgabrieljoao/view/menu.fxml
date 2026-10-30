@@ -5,27 +5,54 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="app.uc4javafxgabrieljoao.controller.MenuController">
     <top>
         <HBox alignment="CENTER_LEFT" spacing="15" styleClass="topo">
-            <padding><Insets top="16" right="28" bottom="16" left="28"/></padding>
-            <Label text="🎬 CINEMA" styleClass="logo"/>
+            <padding><Insets top="14" right="40" bottom="14" left="40"/></padding>
+            <Label text="CINE" styleClass="logo"/>
+            <Label text="TELA" styleClass="logo-destaque"/>
             <Region HBox.hgrow="ALWAYS"/>
-            <Button text="Catálogo de filmes" styleClass="secundario" onAction="#onCatalogo"/>
+            <Button text="Catálogo de filmes" styleClass="nav" onAction="#onCatalogo"/>
         </HBox>
     </top>
     <center>
         <ScrollPane fitToWidth="true" styleClass="rolagem">
-            <VBox spacing="18">
-                <padding><Insets top="26" right="28" bottom="28" left="28"/></padding>
-                <Label text="Em cartaz" styleClass="secao"/>
-                <FlowPane fx:id="grade" hgap="22" vgap="22"/>
+            <VBox>
+                <StackPane fx:id="banner" styleClass="banner" prefHeight="380" minHeight="380" maxHeight="380">
+                    <Region styleClass="banner-sombra" mouseTransparent="true"/>
+                    <VBox spacing="12" alignment="CENTER_LEFT" maxWidth="680" StackPane.alignment="CENTER_LEFT">
+                        <padding><Insets left="48" right="20"/></padding>
+                        <Label fx:id="bannerGenero" styleClass="banner-genero"/>
+                        <Label fx:id="bannerTitulo" styleClass="banner-titulo" wrapText="true"/>
+                        <HBox fx:id="bannerInfo" spacing="12" alignment="CENTER_LEFT"/>
+                        <Label fx:id="bannerSinopse" styleClass="banner-sinopse" wrapText="true"/>
+                        <Button fx:id="bannerBotao" text="COMPRAR INGRESSOS" styleClass="pill"/>
+                    </VBox>
+                </StackPane>
+
+                <VBox spacing="14">
+                    <padding><Insets top="22" right="40" bottom="30" left="40"/></padding>
+                    <HBox styleClass="abas" alignment="CENTER_LEFT" maxWidth="-Infinity">
+                        <Button text="Em Cartaz" styleClass="aba-ativa"/>
+                        <Button text="Catálogo" styleClass="aba" onAction="#onCatalogo"/>
+                    </HBox>
+                    <StackPane>
+                        <ScrollPane fx:id="carrossel" styleClass="rolagem" fitToHeight="true"
+                                    hbarPolicy="NEVER" vbarPolicy="NEVER" prefHeight="400">
+                            <HBox fx:id="faixa" spacing="16">
+                                <padding><Insets top="8" right="8" bottom="14" left="8"/></padding>
+                            </HBox>
+                        </ScrollPane>
+                        <Button text="‹" styleClass="seta" onAction="#onAnterior" StackPane.alignment="CENTER_LEFT"/>
+                        <Button text="›" styleClass="seta" onAction="#onProximo" StackPane.alignment="CENTER_RIGHT"/>
+                    </StackPane>
+                </VBox>
             </VBox>
         </ScrollPane>
     </center>
