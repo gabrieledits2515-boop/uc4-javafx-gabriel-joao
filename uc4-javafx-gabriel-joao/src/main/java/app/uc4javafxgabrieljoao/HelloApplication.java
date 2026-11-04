@@ -1,19 +1,20 @@
 package app.uc4javafxgabrieljoao;
 
+import app.uc4javafxgabrieljoao.util.Navegador;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class HelloApplication extends Application {
+
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(""));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
+    public void start(Stage stage) {
+        stage.setTitle("Cinema");
+        Navegador.stage = stage;
+        Navegador.ir("menu.fxml");
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }
