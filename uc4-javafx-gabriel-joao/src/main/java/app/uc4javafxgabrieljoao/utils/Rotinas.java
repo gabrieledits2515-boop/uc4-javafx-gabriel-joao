@@ -1,16 +1,14 @@
 package app.uc4javafxgabrieljoao.utils;
 
-import app.uc4javafxgabrieljoao.HelloApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import app.uc4javafxgabrieljoao.HelloApplication;
 
-import javax.swing.*;
-import javax.swing.plaf.multi.MultiPopupMenuUI;
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.util.Optional;
 

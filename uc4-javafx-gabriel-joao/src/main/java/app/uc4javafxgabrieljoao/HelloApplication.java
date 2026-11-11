@@ -1,16 +1,19 @@
 package app.uc4javafxgabrieljoao;
 
-import app.uc4javafxgabrieljoao.util.Navegador;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class HelloApplication extends Application {
+import java.io.IOException;
 
+public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) {
-        stage.setTitle("Cinema");
-        Navegador.stage = stage;
-        Navegador.ir("menu.fxml");
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 220, 200);
+        stage.setTitle("Sistema de Sessões");
+        stage.setScene(scene);
         stage.show();
     }
 

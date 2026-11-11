@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="340.0" prefWidth="420.0" spacing="18.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.uc4javafxgabrieljoao.controller.CadastrarController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <Label text="Cadastrar Sessão">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <GridPane hgap="10.0" vgap="14.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="110.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+         </columnConstraints>
+         <children>
+            <Label text="Nome do filme:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="nomeFilmeTextField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Data:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dataDatePicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Horário :" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="horarioTextField" promptText="19:30" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Preço (R$):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="precoTextField" promptText="25.50" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+      <HBox alignment="CENTER" spacing="40.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#cadastrar" prefWidth="90.0" text="Salvar" />
+            <Button mnemonicParsing="false" onAction="#voltar" prefWidth="90.0" text="Voltar" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
