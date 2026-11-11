@@ -1,4 +1,4 @@
-package model;
+package app.uc4javafxgabrieljoao.model;
 
 import java.time.LocalDateTime;
 
