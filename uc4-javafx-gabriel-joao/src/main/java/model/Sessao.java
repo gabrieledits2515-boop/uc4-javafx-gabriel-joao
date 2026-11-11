@@ -2,8 +2,7 @@ package model;
 
 import java.time.LocalDateTime;
 
-public class
-Sessao {
+public class Sessao {
     private  int id;
     private String nomeFilme;
     private LocalDateTime dataHorario;
